@@ -83,14 +83,19 @@ document.addEventListener('DOMContentLoaded', function () {
 	const formImage = document.getElementById('formImage');
 	//Получаем див для превью в переменную
 	const formPreview = document.getElementById('formPreview');
-
+	const formDock = document.getElementById('formSummary');
+	const formPrev = document.getElementById('formPrev');
 	//Слушаем изменения в инпуте file
 	formImage.addEventListener('change', () => {
 		uploadFile(formImage.files[0]);
 	});
+	formDock.addEventListener('change', () => {
+		uploadFileResume(formDock.files[0]);
+	});
 
 	function uploadFile(file) {//Валидация загрузки файлов
 		// провераяем тип файла
+
 		if (!['image/jpeg', 'image/png', 'image/gif'].includes(file.type)) {
 			alert('Разрешены только изображения.');
 			formImage.value = '';
@@ -105,6 +110,34 @@ document.addEventListener('DOMContentLoaded', function () {
 		var reader = new FileReader();
 		reader.onload = function (e) {
 			formPreview.innerHTML = `<img src="${e.target.result}" alt="Фото">`;
+		};
+		reader.onerror = function (e) {
+			alert('Ошибка');
+		};
+		reader.readAsDataURL(file);
+	}
+	function uploadFileResume(file) {//Валидация загрузки файлов
+		// провераяем тип файла
+		console.log(file.type);
+		if (!['application/msword', 'application/pdf'].includes(file.type)) {
+			alert('Разрешены только документы: doc, pdf форматов.');
+			formImage.value = '';
+			return;
+		}
+		// проверим размер файла (<2 Мб)
+		if (file.size > 2 * 1024 * 1024) {
+			alert('Файл должен быть менее 2 МБ.');
+			return;
+		}
+
+		var reader = new FileReader();
+		reader.fileName = file.name // file came from a input file element. file = el.files[0];
+		reader.onload = function(readerEvt) {
+			console.log(readerEvt.target.fileName);
+		};
+		reader.onload = function (e) {
+			console.log(e.target);
+			formPrev.innerHTML = `${e.target.fileName}`;
 		};
 		reader.onerror = function (e) {
 			alert('Ошибка');

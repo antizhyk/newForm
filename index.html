@@ -42,7 +42,7 @@
 					</div>
 					<div class="form__item form__item_data">
 						<label class="form__label">Дата рождения*:
-						<input id="datepicker" type="text" name="data" class="form__input">
+						<input id="datepicker" type="text" name="data" class="form__input _req">
 						</label>
 					</div>
 					<div class="form__item">
@@ -57,12 +57,12 @@
 					</div>
 					<div class="form__item">
 						<div class="form__label">Прикрепить резюме</div>
-						<div class="file">
+						<div class="file file__dock">
 							<div class="file__item">
-								<input id="foSummary" accept=".doc, .docx, .pdf"  type="file" name="summary" class="file__input">
+								<input id="formSummary" accept=".doc, .docx, .pdf"  type="file" name="summary" class="file__input">
 								<div class="file__button">Выбрать</div>
 							</div>
-							<div id="formSummary" class="file__preview"></div>
+							<div id="formPrev" class="file__preview file__preview_dock"></div>
 						</div>
 					</div>
 					<button type="submit" class="form__button">Отправить</button>
