@@ -4,12 +4,13 @@ document.addEventListener('DOMContentLoaded', function () {
 	const form = document.getElementById('form');
 	form.addEventListener('submit', formSend);
 
-	async function formSend(e) {
+	async function formSend(e) {//Функция отправка формы
 		e.preventDefault();
 
-		let error = formValidate(form);
+		let error = formValidate(form);//Запуск функции валидации которая возврщает ошибки
 
 		let formData = new FormData(form);
+		console.log(formData);
 		formData.append('image', formImage.files[0]);
 
 		if (error === 0) {
@@ -48,9 +49,6 @@ document.addEventListener('DOMContentLoaded', function () {
 					formAddError(input);
 					error++;
 				}
-			} else if (input.getAttribute("type") === "checkbox" && input.checked === false) {
-				formAddError(input);
-				error++;
 			} else {
 				if (input.value === '') {
 					formAddError(input);
@@ -83,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		uploadFile(formImage.files[0]);
 	});
 
-	function uploadFile(file) {
+	function uploadFile(file) {//Валидация загрузки файлов
 		// провераяем тип файла
 		if (!['image/jpeg', 'image/png', 'image/gif'].includes(file.type)) {
 			alert('Разрешены только изображения.');
