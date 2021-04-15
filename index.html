@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="css/select.css">
+		<link rel="stylesheet" href="css/style.css">
+		<title>Моя форма</title>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="form">
+				<form action="#" id="form" class="form__body">
+					<h1 class="form__title">Отправда данных на почту</h1>
+					<div class="form__item">
+						<label for="formName" class="form__label">Имя*:</label>
+						<input id="formName" type="text" name="name" class="form__input _req">
+					</div>
+					<div class="form__item">
+						<label for="formSurname" class="form__label">Фамилия*:</label>
+						<input id="formSurname" type="text" name="surname" class="form__input _req">
+					</div>
+					<div class="form__item">
+						<label for="formPatronymic" class="form__label">Отчество*:</label>
+						<input id="formPatronymic" type="text" name="patronymic" class="form__input _req">
+					</div>
+					<div class="form__item">
+						<label for="formEmail" class="form__label">E-mail*:</label>
+						<input id="formEmail" type="text" name="email" class="form__input _req _email">
+					</div>
+
+					<div class="form__item">
+						<div class="form__label">Прикрепить фото</div>
+						<div class="file">
+							<div class="file__item">
+								<input id="formImage" accept=".jpg, .png, .gif" type="file" name="image" class="file__input">
+								<div class="file__button">Выбрать</div>
+							</div>
+							<div id="formPreview" class="file__preview"></div>
+						</div>
+					</div>
+					<div class="form__item">
+						<div class="form__label">Прикрепить резюме</div>
+						<div class="file">
+							<div class="file__item">
+								<input id="foSummary"  type="file" name="image" class="file__input">
+								<div class="file__button">Выбрать</div>
+							</div>
+							<div id="formSummary" class="file__preview"></div>
+						</div>
+					</div>
+					<button type="submit" class="form__button">Отправить</button>
+				</form>
+			</div>
+		</div>
+		<script src="js/select.js"></script>
+		<script src="js/script.js"></script>
+	</body>
+</html>
