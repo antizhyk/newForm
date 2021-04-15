@@ -254,3 +254,21 @@ textarea.form__input {
 	top: 3px;
 	box-shadow: 0 2px 0 #161b13;
 }
+.form__wrap{
+	position: relative;
+}
+.form__item_add-field,
+.form__item_remove-field{
+	position: absolute;
+	right: -30px;
+	top: 50%;
+	transform: translate(50%, -50%);
+	cursor: pointer;
+	font-size: 30px;
+	height: 40px;
+	font-weight: 700;
+}
+
+.form__input_tel{
+	margin-bottom: 5px;
+}

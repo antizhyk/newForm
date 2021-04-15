@@ -28,7 +28,19 @@
 						<label for="formEmail" class="form__label">E-mail*:</label>
 						<input id="formEmail" type="text" name="email" class="form__input _req _email">
 					</div>
+					<div class="form__item form__item_tel">
+						<label for="formTel" class="form__label">Номер телефона*:</label>
+						<div class="form__block">
+							<div class="form__wrap">
+								<input id="formTel" type="tel" name="tel[]" class="form__input form__input_tel _req">
+								<div class="form__item_add-field">
+									+
+								</div>
+							</div>
+						</div>
 
+
+					</div>
 					<div class="form__item">
 						<div class="form__label">Прикрепить фото</div>
 						<div class="file">
@@ -43,7 +55,7 @@
 						<div class="form__label">Прикрепить резюме</div>
 						<div class="file">
 							<div class="file__item">
-								<input id="foSummary"  type="file" name="image" class="file__input">
+								<input id="foSummary" accept=".doc, .docx, .pdf"  type="file" name="summary" class="file__input">
 								<div class="file__button">Выбрать</div>
 							</div>
 							<div id="formSummary" class="file__preview"></div>
@@ -54,5 +66,6 @@
 			</div>
 		</div>
 		<script src="js/script.js"></script>
+		<script src="js/functions.js"></script>
 	</body>
 </html>

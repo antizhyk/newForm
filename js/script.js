@@ -9,21 +9,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		let error = formValidate(form);//Запуск функции валидации которая возврщает ошибки
 
-		let formData = new FormData(form);
-		console.log(formData);
-		formData.append('image', formImage.files[0]);
-
+		let formData = new FormData(form);//Пакуем все данные формы в удобный формат
+		// formData.append('image', formImage.files[0]);
+		// formData.append('summary', formImage.files[1]);
+		// console.log(formData.getAll('name'));
 		if (error === 0) {
 			form.classList.add('_sending');
-			let response = await fetch('sendmail.php', {
+			let response = await fetch('http://site2.com:8080/form.php', {
 				method: 'POST',
 				body: formData
 			});
 			if (response.ok) {
-				let result = await response.json();
-				alert(result.message);
-				formPreview.innerHTML = '';
-				form.reset();
+				alert('Exelent');
+				//formPreview.innerHTML = '';
+				//form.reset();
 				form.classList.remove('_sending');
 			} else {
 				alert("Ошибка");
