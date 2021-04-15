@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	function formValidate(form) {
 		let error = 0;
 		let formReq = document.querySelectorAll('._req');
-
+		console.log(formReq);
 		for (let index = 0; index < formReq.length; index++) {
 			const input = formReq[index];
 			formRemoveError(input);
@@ -48,7 +48,13 @@ document.addEventListener('DOMContentLoaded', function () {
 					formAddError(input);
 					error++;
 				}
-			} else {
+			}if (input.classList.contains('_tel')) {
+				if (validatePhone(input)) {
+					formAddError(input);
+					error++;
+				}
+			}
+			else {
 				if (input.value === '') {
 					formAddError(input);
 					error++;
@@ -69,7 +75,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	function emailTest(input) {
 		return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
 	}
+	function validatePhone(input){
+		return !/^\+380\d{3}\d{2}\d{2}\d{2}$/.test(input.value);
 
+	}
 	//Получаем инпут file в переменную
 	const formImage = document.getElementById('formImage');
 	//Получаем див для превью в переменную

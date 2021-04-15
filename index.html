@@ -6,6 +6,7 @@
 		<link rel="stylesheet" href="css/select.css">
 		<link rel="stylesheet" href="css/style.css">
 		<title>Моя форма</title>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -32,14 +33,17 @@
 						<label for="formTel" class="form__label">Номер телефона*:</label>
 						<div class="form__block">
 							<div class="form__wrap">
-								<input id="formTel" type="tel" name="tel[]" class="form__input form__input_tel _req">
+								<input id="formTel" type="tel" name="tel[]" placeholder="+380..." class="form__input form__input_tel _tel _req">
 								<div class="form__item_add-field">
 									+
 								</div>
 							</div>
 						</div>
-
-
+					</div>
+					<div class="form__item form__item_data">
+						<label class="form__label">Дата рождения*:
+						<input id="datepicker" type="text" name="data" class="form__input">
+						</label>
 					</div>
 					<div class="form__item">
 						<div class="form__label">Прикрепить фото</div>
@@ -65,7 +69,10 @@
 				</form>
 			</div>
 		</div>
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		<script src="js/script.js"></script>
+		<script src="js/data.js"></script>
 		<script src="js/functions.js"></script>
 	</body>
 </html>

@@ -272,3 +272,18 @@ textarea.form__input {
 .form__input_tel{
 	margin-bottom: 5px;
 }
+.form__item_data{
+	position: relative;
+}
+.ui-datepicker-trigger {
+	margin-left: 5px;
+	position: absolute;
+	top: calc(50% + 8px);
+	cursor: pointer;
+	width: 25px;
+	right: 10px;
+	transform: translateY(-50%);
+}
+.ui-datepicker-div{
+	right: 0;
+}
