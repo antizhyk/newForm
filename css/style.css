@@ -299,3 +299,6 @@ textarea.form__input {
 	font-size: 20px;
 	padding: 0;
 }
+.file__input_img{
+	width: 97px;
+}

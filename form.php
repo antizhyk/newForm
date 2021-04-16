@@ -1,19 +1,29 @@
 <?php
-$name = $_POST['name'];
-$surname = $_POST['surname'];
-$email = $_POST['email'];
-$patronymic = $_POST['patronymic'];
-$image = $_POST['image'];
-$data = $_POST['data'];
-$document = $_POST['document'];
-
-print_r($_POST);
+//==============Переменные для побключения к БД=====================
 $servername = "test-db-service";
 $database = "myDB";
 $username = "root";
 $password = "root";
 $sql = "mysql:host=$servername;dbname=$database;";
 $dsn_Options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
+//=================================================================
+//=======Переменные с переданной через POST инфой=====================
+$name = $_POST['name'];
+$surname = $_POST['surname'];
+$email = $_POST['email'];
+$patronymic = $_POST['patronymic'];
+$image = '/pictures/' . $_FILES['image']['name'];
+$document = '/documents/' . $_FILES['summary']['name'];
+$data = $_POST['data'];
+//=================================================================
+//==========================Загрузка файлов на сервер==============
+$uploaddirDoc = '/var/www/site2/documents/';
+$uploaddirPic = '/var/www/site2/pictures/';
+$uploadfileDoc = $uploaddirDoc . basename($_FILES['summary']['name']);
+$uploadfilePic = $uploaddirPic . basename($_FILES['image']['name']);
+move_uploaded_file($_FILES['summary']['tmp_name'], $uploadfileDoc);
+move_uploaded_file($_FILES['image']['tmp_name'], $uploadfilePic);
+//=================================================================
 
 try {
     $my_Db_Connection = new PDO($sql, $username, $password, $dsn_Options);
@@ -24,8 +34,8 @@ try {
             patronymic VARCHAR(225),
             email VARCHAR(225),
             data DATE,
-            image BLOB,
-            document BLOB);
+            image VARCHAR(225),
+            document VARCHAR(225));
     CREATE TABLE  IF NOT EXISTS  numbers 
     (
         id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
